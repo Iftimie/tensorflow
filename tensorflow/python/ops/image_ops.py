@@ -38,7 +38,7 @@ See the @{$python/image} guide.
 @@crop_to_bounding_box
 @@extract_glimpse
 @@crop_and_resize
-@@crop_and_resize3D
+@@crop_and_resize3d
 @@flip_up_down
 @@random_flip_up_down
 @@flip_left_right

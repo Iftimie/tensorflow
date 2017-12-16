@@ -1279,7 +1279,7 @@ REGISTER_OP("CropAndResize3D")
     .Input("crop_size: int32")
     .Output("crops: float")
     .Attr("T: {uint8, uint16, int8, int16, int32, int64, half, float, double}")
-    .Attr("method: {'bilinear'} = 'bilinear'")
+    .Attr("method: {'trilinear'} = 'trilinear'")
     .Attr("extrapolation_value: float = 0")
     .SetShapeFn([](InferenceContext* c) {
       // Get inputs and validate ranks.
@@ -1348,7 +1348,7 @@ REGISTER_OP("CropAndResizeGradImage3D")
     .Input("image_size: int32")
     .Output("output: T")
     .Attr("T: {float, half, double}")
-    .Attr("method: {'bilinear'} = 'bilinear'")
+    .Attr("method: {'trilinear'} = 'trilinear'")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle out;
       TF_RETURN_IF_ERROR(c->MakeShapeFromShapeTensor(3, &out));
@@ -1387,7 +1387,7 @@ REGISTER_OP("CropAndResizeGradBoxes3D")
     .Input("box_ind: int32")
     .Output("output: float")
     .Attr("T: {uint8, uint16, int8, int16, int32, int64, half, float, double}")
-    .Attr("method: {'bilinear'} = 'bilinear'")
+    .Attr("method: {'trilinear'} = 'trilinear'")
     .SetShapeFn([](InferenceContext* c) {
       c->set_output(0, c->input(2));
       return Status::OK();
