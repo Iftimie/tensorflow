@@ -31,6 +31,14 @@ struct NonMaxSuppression {
                   typename TTypes<int, 1>::Tensor selected_indices);
 };
 
+template <typename Device, typename T>
+struct NonMaxSuppression3D {
+  void operator()(const Device& d, typename TTypes<float, 2>::ConstTensor boxes,
+                  typename TTypes<float, 1>::ConstTensor scores,
+                  float iou_threshold, int max_output_size,
+                  typename TTypes<int, 1>::Tensor selected_indices);
+};
+
 }  // namespace functor
 }  // namespace tensorflow
 
